@@ -1,5 +1,5 @@
 /* ==========================================
-   RESET Y ESTILOS BASE
+   RESET Y VARIABLES CROMÁTICAS
    ========================================== */
 * {
     box-sizing: border-box;
@@ -7,119 +7,196 @@
     padding: 0;
 }
 
+:root {
+    --green-dark: #1e4d2b;      /* Verde franja izquierda etiqueta */
+    --green-light: #2e7d32;     /* Verde secundario */
+    --green-soft: #f0f7f1;      /* Fondo suave verde */
+    --amber-honey: #f59e0b;     /* Color miel / ámbar */
+    --amber-dark: #b45309;      /* Texto miel oscuro */
+    --yellow-dripping: #fbbf24; /* Color miel derretida */
+    --bg-cream: #fdfbf7;        /* Crema suave de fondo */
+    --text-dark: #292524;       /* Texto base */
+    --red-alert: #d97706;       /* Color del sello */
+}
+
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #fffbeb; /* Tono cálido/crema pastel */
-    color: #4a3b32;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-cream);
+    /* Fondo con sutil patrón botánico de ramitas/hojas */
+    background-image: 
+        radial-gradient(#c8e6c9 12%, transparent 13%), 
+        radial-gradient(#fde68a 12%, transparent 13%);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+    color: var(--text-dark);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
 }
 
 /* ==========================================
-   TARJETA CONTENEDORA
+   CONTENEDOR PRINCIPAL CON MIEL ESCURRIDA Y PANAL
    ========================================== */
 .card {
+    position: relative;
     background: #ffffff;
     border: 2px solid #fde68a;
-    border-radius: 20px;
-    padding: 40px 30px;
-    max-width: 440px;
+    border-radius: 28px;
+    max-width: 1100px;
     width: 100%;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(217, 119, 6, 0.12);
+    padding: 40px 30px 30px 30px;
+    box-shadow: 0 20px 45px rgba(30, 77, 43, 0.12);
+    overflow: hidden;
 }
 
-/* Marca superior */
-.brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #fef3c7;
-    color: #92400e;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
+/* 1. MIEL ESCURRIDA SUPERIOR (SVG SVG fluido en el borde superior) */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V30c20,0,30,25,50,25s30,-25,50,-25s30,15,50,15s30,-15,50,-15s20,35,40,35s30,-35,50,-35s30,20,50,20s30,-20,50,-20s20,40,40,40s30,-40,50,-40s30,10,50,10s30,-10,50,-10s20,30,40,30s30,-30,50,-30s30,15,50,15s30,-15,50,-15s20,25,40,25s30,-25,50,-25s30,10,50,10s30,-10,50,-10V0H0z' fill='%23fbbf24' opacity='0.85'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 2;
 }
 
-.brand-icon {
-    font-size: 1.1rem;
+/* 2. HEXÁGONOS DE PANAL EN EL FONDO */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.08;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='69.282' viewBox='0 0 40 69.282'%3E%3Cpath d='M40 17.321l-20-11.547L0 17.321v23.094l20 11.547 20-11.547zM20 5.774l15 8.66v17.32l-15 8.66-15-8.66v-17.32z' fill='%23b45309'/%3E%3C/svg%3E");
+    z-index: 0;
 }
 
-.title {
-    font-size: 1.5rem;
-    color: #78350f;
-    font-weight: 800;
-    margin-bottom: 25px;
+.dashboard-grid {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 /* ==========================================
-   ANIMACIÓN DE LA ABEJITA Y TEXTO
+   ENCABEZADO DE MARCA CON ABEJAS
    ========================================== */
-.redirect-box {
+.brand-header {
     position: relative;
-    margin: 35px 0 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-light));
+    color: #ffffff;
+    padding: 28px 20px 22px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(30, 77, 43, 0.2);
+    overflow: hidden;
+}
+
+/* Ilustración de ramitas en las esquinas del header */
+.brand-header::before {
+    content: "🌿 🐝";
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    font-size: 1.4rem;
+}
+
+.brand-header::after {
+    content: "🐝 🌿";
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.4rem;
+}
+
+.brand-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+}
+
+.brand-title {
+    color: #ffffff;
+    font-size: 1.9rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+.brand-subtitle {
+    color: #fef08a;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-top: 6px;
+}
+
+.origin-text {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    margin-top: 4px;
+}
+
+/* ==========================================
+   REDIRECCIÓN CON ABEJITA VOLADORA
+   ========================================== */
+.redirect-section {
+    text-align: center;
+    background-color: #fffbeb;
+    border: 2px solid #fef3c7;
+    border-radius: 18px;
+    padding: 20px;
 }
 
 .bee-track {
     width: 100%;
-    max-width: 280px;
-    height: 40px;
+    height: 38px;
     position: relative;
+    overflow: hidden;
 }
 
 .bee {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 2.2rem;
-    animation: flyBee 2.8s ease-in-out infinite;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    font-size: 2rem;
+    animation: flyBee 3s ease-in-out infinite;
 }
 
 @keyframes flyBee {
-    0% {
-        left: 0%;
-        transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-10px) rotate(8deg);
-    }
-    50% {
-        left: 80%;
-        transform: translateY(3px) rotate(-6deg);
-    }
-    75% {
-        transform: translateY(-8px) rotate(4deg);
-    }
-    100% {
-        left: 0%;
-        transform: translateY(0px) rotate(0deg);
-    }
+    0% { left: 0%; transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-6px) rotate(8deg); }
+    50% { left: 82%; transform: translateY(2px) rotate(-6deg); }
+    75% { transform: translateY(-5px) rotate(4deg); }
+    100% { left: 0%; transform: translateY(0px) rotate(0deg); }
 }
 
-.redirect-text {
-    font-size: 1.6rem;
+.redirect-status {
+    font-size: 0.98rem;
     font-weight: 800;
-    color: #d97706;
-    margin-top: 5px;
+    color: var(--amber-dark);
+    margin: 8px 0 6px 0;
 }
 
-/* Puntos suspensivos animados */
 .dots span {
     animation: blink 1.4s infinite;
     opacity: 0;
 }
-
 .dots span:nth-child(1) { animation-delay: 0.0s; }
 .dots span:nth-child(2) { animation-delay: 0.2s; }
 .dots span:nth-child(3) { animation-delay: 0.4s; }
@@ -129,31 +206,20 @@ body {
     50% { opacity: 1; }
 }
 
-/* ==========================================
-   DESCRIPCIÓN Y BARRA DE PROGRESO
-   ========================================== */
-.description {
-    font-size: 0.95rem;
-    color: #78350f;
-    line-height: 1.5;
-    margin-bottom: 25px;
-}
-
 .progress-container {
     width: 100%;
     height: 8px;
-    background-color: #fef3c7;
+    background-color: #fde68a;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 25px;
+    margin: 10px 0;
 }
 
 .progress-bar {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, #f59e0b, #d97706);
-    border-radius: 10px;
-    animation: fillProgress 3s linear forwards;
+    background: linear-gradient(90deg, #f59e0b, var(--amber-dark));
+    animation: fillProgress 5s linear forwards;
 }
 
 @keyframes fillProgress {
@@ -161,24 +227,202 @@ body {
     to { width: 100%; }
 }
 
+.resolucion-info {
+    font-size: 0.82rem;
+    color: #78350f;
+    line-height: 1.35;
+}
+
 /* ==========================================
-   ENLACE MANUAL DE RESPALDO
+   SELLO DE ADVERTENCIA SALUD (< 2 AÑOS)
    ========================================== */
-.manual-fallback {
+.warning-badge-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #fff8f1;
+    border: 2px solid var(--amber-honey);
+    border-radius: 18px;
+    padding: 14px 18px;
+}
+
+.warning-icon-circle {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border: 3px solid var(--amber-dark);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: var(--amber-dark);
+    font-weight: 900;
+    line-height: 0.9;
+}
+
+.age-limit { font-size: 0.52rem; text-transform: uppercase; }
+.age-number { font-size: 1.15rem; }
+.age-unit { font-size: 0.52rem; }
+
+.warning-text {
+    font-size: 0.84rem;
+    color: #78350f;
+    line-height: 1.35;
+}
+
+/* ==========================================
+   COLUMNA DERECHA: DATOS Y TABLA
+   ========================================== */
+.column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.info-item {
+    background-color: var(--green-soft);
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+    padding: 10px 14px;
+    text-align: center;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--green-dark);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.info-value {
+    font-size: 0.92rem;
+    color: var(--text-dark);
+    font-weight: 800;
+}
+
+/* Tabla Nutricional con adorno de abeja */
+.nutrition-section {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #fef3c7;
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.nutrition-section::after {
+    content: "🐝";
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    font-size: 1.3rem;
+}
+
+.section-title {
+    font-size: 0.98rem;
+    color: var(--amber-dark);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.nutrition-subtitle {
+    font-size: 0.78rem;
+    color: #78350f;
+    margin-bottom: 12px;
+}
+
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
     font-size: 0.85rem;
-    color: #92400e;
-    line-height: 1.4;
-    border-top: 1px dashed #fde68a;
+}
+
+.nutrition-table th, .nutrition-table td {
+    padding: 8px 12px;
+    text-align: right;
+    border-bottom: 1px solid #fef3c7;
+}
+
+.nutrition-table th:first-child, .nutrition-table td:first-child {
+    text-align: left;
+}
+
+.nutrition-table th {
+    background-color: #fef3c7;
+    color: #78350f;
+    font-weight: 800;
+}
+
+.nutrition-table tr:hover {
+    background-color: #fffbeb;
+}
+
+/* Enlace Manual */
+.manual-fallback {
+    text-align: center;
+    border-top: 2px dashed #fcd34d;
     padding-top: 18px;
+    margin-top: 10px;
+}
+
+.manual-fallback p {
+    font-size: 0.85rem;
+    color: #78350f;
+    margin-bottom: 8px;
 }
 
 .manual-fallback a {
-    color: #d97706;
+    display: inline-block;
+    background-color: var(--green-light);
+    color: #ffffff;
+    font-size: 0.9rem;
     font-weight: 700;
-    text-decoration: underline;
-    transition: color 0.2s ease;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);
+    transition: all 0.2s ease;
 }
 
 .manual-fallback a:hover {
-    color: #b45309;
+    background-color: var(--green-dark);
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   ADAPTACIÓN RESPONSIVA (TABLET / PC)
+   ========================================== */
+@media (min-width: 768px) {
+    .card {
+        padding: 48px 40px 36px 40px;
+    }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 32px;
+        align-items: start;
+    }
+
+    .column-left {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .manual-fallback {
+        grid-column: 1 / -1;
+    }
 }
