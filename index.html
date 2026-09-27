@@ -15,7 +15,7 @@
     <!-- TARJETA CENTRAL -->
     <main class="card">
         
-        <!-- ENCABEZADO -->
+        <!-- ENCABEZADO CON FONDO VERDE CLARO Y SUAVE -->
         <header class="brand-header">
             <span class="brand-badge">Producto Natural de Chile</span>
             <h1 class="brand-title">MIEL PURA DE ABEJA</h1>
@@ -23,26 +23,26 @@
             <p class="origin-text">Cunco, La Concepción, Región de La Araucanía</p>
         </header>
 
-        <!-- REDIRECCIÓN CON ANIMACIÓN -->
-        <!-- REDIRECCIÓN CON ANIMACIÓN -->
+        <!-- SECCIÓN DE REDIRECCIÓN CON BARRA Y ABEJA VOLADORA -->
         <section class="redirect-section">
             <div class="redirect-status">
                 Redireccionando a la Resolución Sanitaria<span class="dots"><span>.</span><span>.</span><span>.</span></span>
             </div>
-
-            <!-- CONTENEDOR DE LA BARRA Y ABEJA FLOTANTE -->
             <div class="progress-container">
                 <div class="progress-bar"></div>
                 <img src="abeja_voladora.png" alt="Abeja volando" class="flying-bee">
             </div>
+        </section>
 
+        <!-- CUADRO DE RESOLUCIÓN SANITARIA -->
+        <section class="resolucion-box">
             <p class="resolucion-info">
                 <strong>Resolución Exenta Nº 2509441618</strong><br>
                 Del 15/09/2025 — Servicio de Salud Araucanía
             </p>
         </section>
 
-        <!-- ADVERTENCIA DE SALUD -->
+        <!-- ADVERTENCIA DE SALUD CON LETRAS EN ROJO -->
         <section class="warning-box">
             <div class="warning-badge">NO APTO &lt; 2 AÑOS</div>
             <div class="warning-text">
@@ -51,23 +51,25 @@
             </div>
         </section>
 
-        <!-- GRILLA DE FECHAS Y ORIGEN -->
-        <section class="info-grid">
-            <div class="info-item">
-                <span class="info-label">Temporada</span>
-                <span class="info-value">Verano 2026</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Elaboración</span>
-                <span class="info-value">Marzo 2026</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Vencimiento</span>
-                <span class="info-value">Marzo 2031</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Origen</span>
-                <span class="info-value">Cunco</span>
+        <!-- SECCIÓN DE DETALLES/FECHAS CONTENIDA EN UN CUADRO ENVOLVENTE -->
+        <section class="info-wrapper">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Temporada</span>
+                    <span class="info-value">Verano 2026</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Elaboración</span>
+                    <span class="info-value">Marzo 2026</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Vencimiento</span>
+                    <span class="info-value">Marzo 2031</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Origen</span>
+                    <span class="info-value">Cunco</span>
+                </div>
             </div>
         </section>
 
@@ -81,9 +83,8 @@
 
     </main>
 
-    <!-- SCRIPT PARA GENERAR LAS IMÁGENES ESTÁTICAS DE FONDO -->
+    <!-- SCRIPT PARA IMÁGENES DE FONDO Y REDIRECCIÓN -->
     <script>
-        // Nombres exactos de las imágenes en la carpeta raíz (junto a index.html)
         const imageFiles = [
             'abejas.png.png',
             'abejas.png(1).png',
@@ -93,7 +94,7 @@
         ];
 
         const container = document.getElementById('bg-decorations');
-        const totalElements = 35; // Cantidad de imágenes a esparcir
+        const totalElements = 35;
 
         for (let i = 0; i < totalElements; i++) {
             const img = document.createElement('img');
@@ -102,11 +103,9 @@
             img.src = randomSrc;
             img.className = 'bg-element';
 
-            // Ubicación aleatoria en la pantalla
             let posX = Math.random() * 92; 
             let posY = Math.random() * 92;
 
-            // Tamaño y rotación aleatoria
             const size = Math.floor(Math.random() * 65) + 45;
             const rotation = Math.floor(Math.random() * 360); 
             const opacity = (Math.random() * 0.35 + 0.50).toFixed(2);
@@ -121,11 +120,11 @@
             container.appendChild(img);
         }
 
-        // Redirección automática en 5 segundos
         var TARGET_URL = "https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/";
         setTimeout(function() {
             window.location.href = TARGET_URL;
         }, 5000);
     </script>
+
 </body>
 </html>
