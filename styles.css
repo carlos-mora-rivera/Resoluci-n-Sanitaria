@@ -101,60 +101,53 @@ body {
     margin-bottom: 20px;
 }
 
-/* REDIRECCIÓN Y BARRA DE PROGRESO */
-.redirect-section {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-}
-
-.redirect-status {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--primary-amber);
-    margin-bottom: 10px;
-}
-
-.dots span {
-    animation: blink 1.4s infinite;
-    animation-fill-mode: both;
-}
-.dots span:nth-child(2) { animation-delay: .2s; }
-.dots span:nth-child(3) { animation-delay: .4s; }
-
-@keyframes blink {
-    0% { opacity: .2; }
-    20% { opacity: 1; }
-    100% { opacity: .2; }
-}
-
+/* CONTENEDOR Y BARRA DE PROGRESO CON ABEJA */
 .progress-container {
+    position: relative;
     width: 100%;
-    height: 6px;
+    height: 10px;
     background-color: #fef3c7;
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 12px;
+    border-radius: 5px;
+    margin: 25px 0 15px 0; /* Espacio superior para la abeja */
+    overflow: visible; /* Permite que la abeja sobresalga arriba de la barra */
 }
 
 .progress-bar {
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, #f59e0b, #d97706);
-    border-radius: 3px;
+    border-radius: 5px;
     animation: fillProgress 5s linear forwards;
 }
 
-@keyframes fillProgress {
-    to { width: 100%; }
+/* ABEJA SOBRE LA BARRA DE PROGRESO */
+.flying-bee {
+    position: absolute;
+    top: -18px; /* Ajusta la altura sobre la barra */
+    left: 0%;
+    width: 28px;
+    height: auto;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 5;
+    animation: moveBee 5s linear forwards, beeFlutter 0.3s ease-in-out infinite alternate;
 }
 
-.resolucion-info {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.4;
+/* ANIMACIÓN DE AVANCE SINCRONIZADA A 5 SEGUNDOS */
+@keyframes fillProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes moveBee {
+    0% { left: 0%; }
+    100% { left: 100%; }
+}
+
+/* EFECTO DE ALETEO/ALETEO SUAVE MIENTRAS AVANZA */
+@keyframes beeFlutter {
+    0% { transform: translateX(-50%) translateY(0px) rotate(-3deg); }
+    100% { transform: translateX(-50%) translateY(-3deg) rotate(3deg); }
 }
 
 /* ADVERTENCIA DE SALUD */
