@@ -1,4 +1,3 @@
-/* RESET DE SEGURIDAD PARA MÓVILES */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,104 +5,92 @@
 }
 
 :root {
-    --green-dark: #1b4b27;
-    --green-medium: #2e7d32;
-    --green-soft: #f0f7f1;
-    --honey-gold: #f59e0b;
-    --honey-amber: #b45309;
-    --bg-cream: #fcf8f0;
-    --text-dark: #292524;
-}
-
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Evita desplazamiento horizontal en celulares */
+    --bg-main: #121212;
+    --card-bg: #1e1e1e;
+    --card-inner-bg: #282828;
+    --gold: #f59e0b;
+    --gold-light: #fef08a;
+    --gold-border: #b45309;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
 }
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-cream);
-    color: var(--text-dark);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12px;
+    padding: 16px;
 }
 
-/* MARCO PRINCIPAL ADAPTABLE */
+/* MARCO PRINCIPAL */
 .card {
-    background: #ffffff;
-    border: 2px solid #fde68a;
-    border-radius: 20px;
+    background-color: var(--card-bg);
+    border: 1.5px solid var(--gold-border);
+    border-radius: 16px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 520px;
     padding: 20px 16px;
-    box-shadow: 0 10px 25px rgba(27, 75, 39, 0.08);
-}
-
-.dashboard-grid {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* ENCABEZADO Y MARCA */
+/* ENCABEZADO */
 .brand-header {
-    background: linear-gradient(135deg, var(--green-dark), var(--green-medium));
-    color: #ffffff;
-    padding: 18px 14px;
-    border-radius: 16px;
     text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333333;
 }
 
 .brand-badge {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    font-size: 0.68rem;
-    font-weight: 800;
-    padding: 3px 10px;
-    border-radius: 12px;
+    font-size: 0.7rem;
+    color: var(--gold-light);
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 6px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
 }
 
 .brand-title {
-    font-size: clamp(1.3rem, 5vw, 1.8rem);
-    font-weight: 900;
-    line-height: 1.15;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1.2;
 }
 
 .brand-subtitle {
-    color: #fef08a;
-    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
-    font-weight: 800;
-    margin-top: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 2px;
 }
 
 .origin-text {
     font-size: 0.8rem;
-    color: #e2e8f0;
+    color: var(--text-muted);
     margin-top: 4px;
 }
 
 /* SECCIÓN REDIRECCIÓN */
 .redirect-section {
+    background-color: var(--card-inner-bg);
+    border: 1px solid #383838;
+    border-radius: 12px;
+    padding: 14px;
     text-align: center;
-    background-color: #fffbeb;
-    border: 1.5px solid #fef3c7;
-    border-radius: 14px;
-    padding: 14px 12px;
 }
 
 .redirect-status {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: var(--honey-amber);
-    margin-bottom: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 8px;
 }
 
 .dots span {
@@ -121,17 +108,17 @@ body {
 
 .progress-container {
     width: 100%;
-    height: 7px;
-    background-color: #fde68a;
-    border-radius: 8px;
+    height: 6px;
+    background-color: #333333;
+    border-radius: 6px;
     overflow: hidden;
-    margin: 8px 0;
+    margin: 8px 0 10px 0;
 }
 
 .progress-bar {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, #f59e0b, var(--honey-amber));
+    background-color: var(--gold);
     animation: fillProgress 5s linear forwards;
 }
 
@@ -142,55 +129,39 @@ body {
 
 .resolucion-info {
     font-size: 0.78rem;
-    color: #78350f;
-    line-height: 1.3;
+    color: var(--text-secondary);
+    line-height: 1.35;
 }
 
 /* ADVERTENCIA DE SALUD */
-.warning-badge-box {
+.warning-box {
+    background-color: #2a1810;
+    border: 1px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 12px;
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: #fff8f1;
-    border: 1.5px solid var(--honey-gold);
-    border-radius: 14px;
-    padding: 12px;
 }
 
-.warning-icon-circle {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
-    border: 2.5px solid var(--honey-amber);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    color: var(--honey-amber);
+.warning-badge {
+    background-color: #dc2626;
+    color: #ffffff;
+    font-size: 0.65rem;
     font-weight: 900;
-    line-height: 0.95;
-    flex-shrink: 0;
+    padding: 6px 8px;
+    border-radius: 6px;
+    text-align: center;
+    white-space: nowrap;
 }
-
-.age-limit { font-size: 0.48rem; text-transform: uppercase; }
-.age-number { font-size: 1.05rem; }
-.age-unit { font-size: 0.48rem; }
 
 .warning-text {
-    font-size: 0.8rem;
-    color: #78350f;
+    font-size: 0.78rem;
+    color: #fce7f3;
     line-height: 1.3;
 }
 
-/* GRILLA DE INFORMACIÓN */
-.column-right {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
+/* GRILLA DE DATOS (2 x 2) */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -198,136 +169,89 @@ body {
 }
 
 .info-item {
-    background-color: var(--green-soft);
-    border: 1px solid #c8e6c9;
-    border-radius: 10px;
-    padding: 8px;
+    background-color: var(--card-inner-bg);
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 8px 10px;
     text-align: center;
 }
 
 .info-label {
     display: block;
     font-size: 0.65rem;
-    color: var(--green-dark);
+    color: var(--text-muted);
     text-transform: uppercase;
-    font-weight: 800;
 }
 
 .info-value {
     font-size: 0.85rem;
-    color: var(--text-dark);
-    font-weight: 800;
+    color: var(--gold-light);
+    font-weight: 700;
 }
 
-/* TABLA NUTRICIONAL CON DESPLAZAMIENTO SEGURO */
+/* TABLA NUTRICIONAL CON FORMATO CLARO */
 .nutrition-section {
-    background-color: #ffffff;
-    border: 1px solid #fef3c7;
-    border-radius: 14px;
+    background-color: var(--card-inner-bg);
+    border: 1px solid #333333;
+    border-radius: 12px;
     padding: 14px;
 }
 
 .section-title {
     font-size: 0.9rem;
-    color: var(--honey-amber);
-    font-weight: 800;
+    color: var(--gold);
     text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 2px;
 }
 
 .nutrition-subtitle {
-    font-size: 0.75rem;
-    color: #78350f;
-    margin-bottom: 10px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
 }
 
 .table-wrapper {
     width: 100%;
-    overflow-x: auto;
 }
 
 .nutrition-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.8rem;
-    min-width: 260px;
-}
-
-.nutrition-table th, .nutrition-table td {
-    padding: 6px 8px;
-    text-align: right;
-    border-bottom: 1px solid #fef3c7;
-}
-
-.nutrition-table th:first-child, .nutrition-table td:first-child {
-    text-align: left;
+    font-size: 0.78rem;
 }
 
 .nutrition-table th {
-    background-color: #fef3c7;
-    color: #78350f;
-    font-weight: 800;
+    color: var(--gold-light);
+    border-bottom: 1px solid #444444;
+    padding-bottom: 6px;
+    font-weight: 700;
 }
 
-/* ENLACE MANUAL Y BOTÓN */
+.nutrition-table td {
+    padding: 6px 0;
+    border-bottom: 1px solid #2e2e2e;
+    color: var(--text-secondary);
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* ENLACE MANUAL */
 .manual-fallback {
     text-align: center;
-    border-top: 1.5px dashed #fcd34d;
-    padding-top: 14px;
-    margin-top: 4px;
+    padding-top: 8px;
 }
 
 .manual-fallback p {
-    font-size: 0.8rem;
-    color: #78350f;
-    margin-bottom: 8px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
 }
 
 .manual-fallback a {
-    display: block;
-    width: 100%;
-    background-color: var(--green-medium);
-    color: #ffffff;
-    font-size: 0.85rem;
+    color: var(--gold);
+    font-size: 0.82rem;
     font-weight: 700;
-    padding: 12px 16px;
-    border-radius: 10px;
-    text-decoration: none;
-    box-shadow: 0 3px 10px rgba(46, 125, 50, 0.2);
-}
-
-/* AJUSTES PARA PANTALLAS MÁS GRANDES (TABLETS Y PC) */
-@media (min-width: 768px) {
-    body {
-        padding: 24px;
-    }
-
-    .card {
-        padding: 36px 30px;
-    }
-
-    .dashboard-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-    }
-
-    .column-left {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .info-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .manual-fallback {
-        grid-column: 1 / -1;
-    }
-
-    .manual-fallback a {
-        display: inline-block;
-        width: auto;
-        padding: 10px 24px;
-    }
+    text-decoration: underline;
 }
