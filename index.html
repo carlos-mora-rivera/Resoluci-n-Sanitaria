@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Agrupación Apícola Cunco - Resolución Sanitaria</title>
-    <link rel="stylesheet" href="styles.css">
     <meta http-equiv="refresh" content="5;url=https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+    <!-- FONDO CON IMÁGENES ESPARCIDAS ESTÁTICAS -->
+    <div id="bg-decorations"></div>
+
+    <!-- TARJETA CENTRAL -->
     <main class="card">
         
         <!-- ENCABEZADO -->
@@ -72,7 +76,46 @@
 
     </main>
 
+    <!-- SCRIPT PARA GENERAR 35 IMÁGENES ESTÁTICAS DE FONDO -->
     <script>
+        const imageFiles = [
+            'images/abejas.png.png',
+            'images/abejas.png(1).png',
+            'images/abejas.png(2).png',
+            'images/abejas.png(3).png',
+            'images/abejas.png(4).png'
+        ];
+
+        const container = document.getElementById('bg-decorations');
+        const totalElements = 35; // Aumentado a 35 imágenes para cubrir mejor el fondo
+
+        for (let i = 0; i < totalElements; i++) {
+            const img = document.createElement('img');
+            const randomSrc = imageFiles[Math.floor(Math.random() * imageFiles.length)];
+            
+            img.src = randomSrc;
+            img.className = 'bg-element';
+
+            // Ubicación en porcentaje de la pantalla
+            let posX = Math.random() * 92; 
+            let posY = Math.random() * 92;
+
+            // Variación de tamaños (de 45px a 110px) y opacidades
+            const size = Math.floor(Math.random() * 65) + 45;
+            const rotation = Math.floor(Math.random() * 360); 
+            const opacity = (Math.random() * 0.35 + 0.50).toFixed(2);
+
+            img.style.left = `${posX}vw`;
+            img.style.top = `${posY}vh`;
+            img.style.width = `${size}px`;
+            img.style.height = 'auto';
+            img.style.opacity = opacity;
+            img.style.transform = `rotate(${rotation}deg)`;
+
+            container.appendChild(img);
+        }
+
+        // Redirección automática a los 5 segundos
         var TARGET_URL = "https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/";
         setTimeout(function() {
             window.location.href = TARGET_URL;
