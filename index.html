@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Agrupación Apícola Cunco - Resolución Sanitaria</title>
     <link rel="stylesheet" href="styles.css">
     <meta http-equiv="refresh" content="5;url=https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/">
@@ -19,7 +19,7 @@
             <p class="origin-text">Cunco, La Concepción, Región de La Araucanía</p>
         </header>
 
-        <!-- REDIRECCIÓN -->
+        <!-- REDIRECCIÓN CON ANIMACIÓN -->
         <section class="redirect-section">
             <div class="redirect-status">
                 🐝 Redireccionando a la Resolución Sanitaria<span class="dots"><span>.</span><span>.</span><span>.</span></span>
@@ -33,7 +33,7 @@
             </p>
         </section>
 
-        <!-- ADVERTENCIA -->
+        <!-- ADVERTENCIA DE SALUD -->
         <section class="warning-box">
             <div class="warning-badge">NO APTO &lt; 2 AÑOS</div>
             <div class="warning-text">
@@ -42,7 +42,7 @@
             </div>
         </section>
 
-        <!-- GRILLA DE FECHAS / ORIGEN -->
+        <!-- GRILLA DE FECHAS Y ORIGEN -->
         <section class="info-grid">
             <div class="info-item">
                 <span class="info-label">Temporada</span>
@@ -62,57 +62,7 @@
             </div>
         </section>
 
-        <!-- TABLA NUTRICIONAL -->
-        <section class="nutrition-section">
-            <h3 class="section-title">Información Nutricional</h3>
-            <p class="nutrition-subtitle">Porción: 1 cucharadita (10 g) | Porciones por envase: aprox. 100</p>
-
-            <div class="table-wrapper">
-                <table class="nutrition-table">
-                    <thead>
-                        <tr>
-                            <th class="text-left">Composición</th>
-                            <th class="text-right">100 g</th>
-                            <th class="text-right">1 Porción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-left">Energía (Kcal)</td>
-                            <td class="text-right">310</td>
-                            <td class="text-right">31</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">Proteínas (g)</td>
-                            <td class="text-right">0,3</td>
-                            <td class="text-right">0,03</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">Grasa Total (g)</td>
-                            <td class="text-right">0</td>
-                            <td class="text-right">0</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">H. de C. Disp. (g)</td>
-                            <td class="text-right">82</td>
-                            <td class="text-right">8,2</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">Azúcares Totales (g)</td>
-                            <td class="text-right">82</td>
-                            <td class="text-right">8,2</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">Sodio (mg)</td>
-                            <td class="text-right">4</td>
-                            <td class="text-right">0,4</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ENLACE MANUAL -->
+        <!-- ENLACE MANUAL DE RESPALDO -->
         <footer class="manual-fallback">
             <p>¿No fuiste redirigido automáticamente?</p>
             <a href="https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/" rel="noopener noreferrer">
@@ -123,9 +73,9 @@
     </main>
 
     <script>
-        const TARGET_URL = "https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/";
+        var TARGET_URL = "https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/";
         setTimeout(function() {
-            window.location.replace(TARGET_URL);
+            window.location.href = TARGET_URL;
         }, 5000);
     </script>
 
