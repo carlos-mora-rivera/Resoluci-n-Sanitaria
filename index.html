@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionando - Resolución Sanitaria</title>
+
+    <!-- Vincular el archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Redirección automática meta por respaldo a los 3 segundos -->
+    <!-- REEMPLAZA "TU_URL_AQUI" POR LA URL FINAL DE TU DOCUMENTO -->
+    <meta http-equiv="refresh" content="3;url=TU_URL_AQUI">
+</head>
+<body>
+
+    <main class="card">
+        <!-- Encabezado / Marca -->
+        <div class="brand">
+            <span class="brand-icon">🍯</span>
+            <span class="brand-text">Agrupación de Apicultores</span>
+        </div>
+
+        <!-- Título principal con íconos decorativos -->
+        <h1 class="title">Resolución Sanitaria</h1>
+
+        <!-- Área de animación -->
+        <div class="redirect-box">
+            <div class="bee-track">
+                <span class="bee">🐝</span>
+            </div>
+            <div class="redirect-text">
+                Redireccionando<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+            </div>
+        </div>
+
+        <!-- Descripción -->
+        <p class="description">
+            Te estamos derivando al documento oficial de la resolución sanitaria de nuestra miel natural.
+        </p>
+
+        <!-- Barra de progreso visual -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <!-- Enlace manual por si falla la redirección -->
+        <div class="manual-fallback">
+            ¿No fuiste redirigido automáticamente?<br>
+            <a id="redirect-link" href="TU_URL_AQUI">Haz clic aquí para ingresar</a>
+        </div>
+    </main>
+
+    <!-- Script de redirección en JavaScript -->
+    <script>
+        // VARIABLE CON TU URL DESTINO (REEMPLAZAR AQUÍ TAMBIÉN)
+        const TARGET_URL = "TU_URL_AQUI";
+
+        // Asegurar la redirección tras 3 segundos (3000 ms)
+        setTimeout(function() {
+            window.location.href = TARGET_URL;
+        }, 3000);
+    </script>
+
+</body>
+</html>
