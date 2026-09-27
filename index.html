@@ -76,18 +76,19 @@
 
     </main>
 
-    <!-- SCRIPT PARA GENERAR 35 IMÁGENES ESTÁTICAS DE FONDO -->
+    <!-- SCRIPT PARA GENERAR LAS IMÁGENES ESTÁTICAS DE FONDO -->
     <script>
+        // Nombres exactos de las imágenes en la carpeta raíz (junto a index.html)
         const imageFiles = [
-            'images/abejas.png.png',
-            'images/abejas.png(1).png',
-            'images/abejas.png(2).png',
-            'images/abejas.png(3).png',
-            'images/abejas.png(4).png'
+            'abejas.png.png',
+            'abejas.png(1).png',
+            'abejas.png(2).png',
+            'abejas.png(3).png',
+            'abejas.png(4).png'
         ];
 
         const container = document.getElementById('bg-decorations');
-        const totalElements = 35; // Aumentado a 35 imágenes para cubrir mejor el fondo
+        const totalElements = 35; // Cantidad de imágenes a esparcir
 
         for (let i = 0; i < totalElements; i++) {
             const img = document.createElement('img');
@@ -96,11 +97,11 @@
             img.src = randomSrc;
             img.className = 'bg-element';
 
-            // Ubicación en porcentaje de la pantalla
+            // Ubicación aleatoria en la pantalla
             let posX = Math.random() * 92; 
             let posY = Math.random() * 92;
 
-            // Variación de tamaños (de 45px a 110px) y opacidades
+            // Tamaño y rotación aleatoria
             const size = Math.floor(Math.random() * 65) + 45;
             const rotation = Math.floor(Math.random() * 360); 
             const opacity = (Math.random() * 0.35 + 0.50).toFixed(2);
@@ -115,12 +116,13 @@
             container.appendChild(img);
         }
 
-        // Redirección automática a los 5 segundos
+        // Redirección automática en 5 segundos
         var TARGET_URL = "https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-descarga/";
         setTimeout(function() {
             window.location.href = TARGET_URL;
         }, 5000);
     </script>
-
+</body>
+</html>
 </body>
 </html>
